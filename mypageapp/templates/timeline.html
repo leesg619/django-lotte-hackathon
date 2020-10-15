@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/timeline.css' %}">
+{% endblock %}
+
+{% block contents %}
+<!-- Banner -->
+<section id="banner" class="major">
+    <div class="inner">
+        <header class="major">
+            <h1>타임라인</h1>
+            <h3>지금까지 주고받은 택배를 볼 수 있습니다.</h3>
+        </header>
+</section>
+
+<!-- Main -->
+<div class="timeline_info">
+    <div class="print">
+        <div class="print_img">
+        <a href="#"><img src="{% static 'images/icon_print.png' %}" alt="icon_print"></a>
+        </div>
+    </div>
+    <div class="timeline">
+        <div class="time">
+            <span class="date">9.16</span>
+            <span class="day">수요일</span>
+        </div>
+        <div class="delivery_info">
+            <span class="delivery_num">233726778622</span> |
+            <span class="delivery_tf">받은택배</span>
+            <br>
+            <span class="delivery_state">배송완료</span> | <span class="delivery_place">(연무동)</span>
+        </div>
+    </div>
+    <div class="timeline">
+        <div class="time">
+            <span class="date">9.16</span>
+            <span class="day">수요일</span>
+        </div>
+        <div class="delivery_info">
+            <span class="delivery_num">233726778622</span> |
+            <span class="delivery_tf">보낸택배</span>
+            <br>
+            <span class="delivery_state">배송완료</span> | <span class="delivery_place">(연무동)</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+        </div>
+    </body>
+</html>

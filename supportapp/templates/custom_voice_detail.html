@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/custom_voice_detail.css' %}">
+{% endblock %}
+
+{% block contents %}
+<!-- Banner -->
+	<section id="banner" class="major">
+		<div class="inner">
+			<header class="major">
+            	<h1>고객의 소리</h1>
+                <h3>택배 관련 건의사항을 작성하고 볼 수 있습니다.</h3>
+			</header>
+		</div>
+	</section>
+<!-- Main -->
+	<table class="tblH mt60">
+		<colgroup>
+			<col span="1">
+		</colgroup>
+	<thead>
+		<tr>
+			<th colspan="5">제목</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr colspan="5">  
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="name">한상준 | 20-10-14</td>	
+		</tr>
+		<td class="contents" colspan="5">
+			글내용들어감글내용들어감글내용들어감글내용들어감글내용들어
+			감글내용들어감글내용들어감글내용들어감글내용들어감글내용들
+			어감글내용들어감
+		</td>
+	</tbody>
+</table>
+{% endblock %}
+		</div>
+	</body>
+</html>

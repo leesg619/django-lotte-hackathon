@@ -1,97 +1,49 @@
+{% extends "base.html" %}
 
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>롯데택배</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="static/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="#" class="logo"><img src="static/images/thumb.png" alt="icon"></a>
-						<nav>
-							<a href="#">택배조회</a>
-							<a href="#">로그인</a>
-							<a href="#">고객지원</a>	
-						</nav>
-					</header>
-
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>운송장 조회</h1>
-							</header>
-							<form action="#" method="post" enctype="multipart/form-data">
-							<div class="content">
-								<input type="text" placeholder="-제외한 숫자만 공백없이 입력">
-								<input type="submit" value="조회">
-							</div>
-						</div>
-					</form>
-					</section>
-
-				<!-- Main -->
-					<div id="main">
-						<!-- One -->
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="#" class="link">택배조회</a></h3>
-										<p>회원 택배조회</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="static/images/pic02.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="#" class="link">고객지원</a></h3>
-										<p>불편한 사항이나 문의할 내용에 대하여 의견을 남기실 수 있습니다.</p>
-									</header>
-								</article>
-							</section>	
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>COPYRIGHT &copy;</li>
-							</ul>
-						</div>
-					</footer>
-
+{% load static %}
+{% block contents %}
+	<!-- Banner -->
+	<section id="banner" class="major">
+		<div class="inner">
+			<header class="major">
+				<h1>운송장 조회</h1>
+			</header>
+			<form action="#" method="post" enctype="multipart/form-data">
+			<div class="content">
+				<input type="text" placeholder="-제외한 숫자만 공백없이 입력">
+				<input type="submit" value="조회">
 			</div>
+		</div>
+			</form>
+	</section>
 
-		<!-- Scripts -->
-			<script src="static/assets/js/jquery.min.js"></script>
-			<script src="static/assets/js/jquery.scrolly.min.js"></script>
-			<script src="static/assets/js/jquery.scrollex.min.js"></script>
-			<script src="static/assets/js/browser.min.js"></script>
-			<script src="static/assets/js/breakpoints.min.js"></script>
-			<script src="static/assets/js/util.js"></script>
-			<script src="static/assets/js/main.js"></script>
+	<!-- Main -->
+	<div id="main">
+		<!-- One -->
+		<section id="one" class="tiles">
+			<article>
+				<span class="image">
+					<img src="{% static 'images/pic01.jpg' %}" alt="" />
+				</span>
+			<header class="major">
+				<h3><a href="{% url 'post_search' %}" class="link">택배조회</a></h3>
+				<p>회원 택배조회</p>
+			</header>
+			</article>
 
-	</body>
+			<article>
+				<span class="image">
+					<img src="{% static 'images/pic02.jpg' %}" alt="" />
+				</span>
+					<header class="major">
+						<h3><a href="{% url 'custom_voice' %}" class="link">고객지원</a></h3>
+						<p>불편한 사항이나 문의할 내용에 대하여 의견을 남기실 수 있습니다.</p>
+					</header>
+			</article>
+			
+		</section>	
+	</div>
+	{% endblock %}
+		</div>
+	</body>	
 </html>

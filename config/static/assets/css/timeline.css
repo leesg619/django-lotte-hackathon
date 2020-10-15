@@ -2831,11 +2831,11 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #D8E6E7;
+				background-color: #6fc3df;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #6e7783;
+				background-color: #8d82c4;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
@@ -3955,4 +3955,67 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+.timeline_info{
+	
+}
+.timeline_info .print{
+	width:800px;
+	display: flex;
+	margin: 0 auto;
+	justify-content: flex-end;
+	align-items: center;
+}
+.timeline_info .print_img{
+	width: 40px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: 30px;
+}
+.timeline_info a{
+	color: transparent;
+}
+.timeline_info img{
+	width: 100%;
+}
+.timeline{
+    width:800px;
+    height: 200px;
+    margin: 0px auto;
+	margin-top: 60px;
+	display:flex;
+	align-items: center;
+	border-radius: 5px;
+	border: 1px solid #8a8d8f;
+	border-top: 4px solid #da291c;
+}	
 
+.timeline .time{
+    width:100px;
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 30px;
+}
+.timeline .time .date{
+	font-size:40px;
+	font-weight: bold;
+}
+.timeline .time .day{
+	font-size:20px;
+	font-weight: 300;
+}
+.delivery_info{
+	margin-left:20px;
+}
+.delivery_info .delivery_tf{
+	font-size:13px;
+	color:#8a8d8f;	
+}
+.delivery_info .delivery_num{
+	font-size:20px;
+	color:#999;	
+}
+.delivery_info .delivery_state{
+	color:#da291c;
+}

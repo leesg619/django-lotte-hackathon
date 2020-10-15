@@ -13,7 +13,7 @@ pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
+form, label, legend,  caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
@@ -2460,8 +2460,8 @@ input, select, textarea {
 			color: #ffffff;
 			font-size: 0.9em;
 			font-weight: 600;
-			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			/* padding: 0 0.75em 0.75em 0.75em; */
+			text-align: center;
 		}
 
 		table thead {
@@ -2517,7 +2517,7 @@ input, select, textarea {
 		border: 0;
 		border-radius: 0;
 		box-shadow: inset 0 0 0 2px #ffffff;
-		color: #ffffff;
+		/* color: #black; */
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -2671,9 +2671,9 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ffffff;
+			background-color: rgba(218,41,28);
 			box-shadow: none;
-			color: #242943;
+			color: #ffffff;
 		}
 
 			input[type="submit"].primary:hover, input[type="submit"].primary:active,
@@ -2685,7 +2685,6 @@ input, select, textarea {
 			button.primary:active,
 			.button.primary:hover,
 			.button.primary:active {
-				background-color: #9bf1ff;
 				color: #242943 !important;
 			}
 
@@ -2831,11 +2830,11 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #D8E6E7;
+				background-color: #6fc3df;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #6e7783;
+				background-color: #8d82c4;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
@@ -3956,3 +3955,65 @@ input, select, textarea {
 			visibility: visible;
 		}
 
+.tblH {
+    border-collapse: separate;
+}
+.tblH {
+    border-top: 4px solid #da291c;
+}
+.mt60 {
+    margin-top: 60px !important;
+}
+table {
+    table-layout: fixed;
+    width: 1050px;
+    border-collapse: collapse;
+    border-spacing: 0;
+	word-break: break-all;
+	margin:0 auto;
+}
+.tblH th {
+    height: 61px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #8a8d8f;
+	color: #2a2a2a;
+	margin: 0 auto;
+}
+
+.tblH td {
+    height: 61px;
+    padding: 18px 10px 17px;
+    border-bottom: 1px solid #c4c6c7;
+    text-align: center;
+}
+table th, table td {
+    vertical-align: middle;
+}
+table th {
+    font-weight: bold;
+}
+.visual_map{
+	width:1000px;
+}
+.visual_map img{
+	width:300px;
+}
+.mt130 {
+    margin-top: 130px !important;
+}
+.table_title {
+	color: transparent;
+}
+.title{
+	width: 50%;
+}
+.write{
+	width:1050px;
+	margin:0 auto;
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 40px;
+}
+.title2{
+	color:black;
+}
