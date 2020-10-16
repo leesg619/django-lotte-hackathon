@@ -28,11 +28,12 @@
 <div class="main_under">
 	<form class="post_form" action="{% url 'post_search_detail' %}" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		<input class="post_number" type="text" placeholder="-제외한 숫자만 공백 없이 입력">
+		<input class="post_number" name = "code" type="text" placeholder="-제외한 숫자만 공백 없이 입력">
 		<input class="post_submit" type="submit" value="조회">
 	</form>
 </div>
 	<div class="desc">
+		<p style = "color:red;">{{error}}</p>
 		<p>3개월 이내의 정보만 조회가 가능합니다.</p>
 	</div>
 {% endblock %}
