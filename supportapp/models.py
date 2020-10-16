@@ -9,7 +9,7 @@ class Qna(models.Model):
     q_type = models.CharField(max_length = 200)
     q_boxcode = models.CharField(max_length = 30)
     q_time = models.DateTimeField(auto_now = True)
-    public = models.BooleanField()
+    public = models.BooleanField(null=True)
 
 
 class Answer(models.Model):

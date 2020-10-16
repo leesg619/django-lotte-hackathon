@@ -22,7 +22,7 @@
 		</colgroup>
 	<thead>
 		<tr>
-			<th colspan="5">제목</th>
+			<th colspan="5">{{ qna.q_title }}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,12 +31,10 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td class="name">한상준 | 20-10-14</td>	
+			<td class="name">{{ qna.user }} | {{ qna.q_time }}</td>	
 		</tr>
 		<td class="contents" colspan="5">
-			글내용들어감글내용들어감글내용들어감글내용들어감글내용들어
-			감글내용들어감글내용들어감글내용들어감글내용들어감글내용들
-			어감글내용들어감
+			{{ qna.q_content }}
 		</td>
 	</tbody>
 </table>

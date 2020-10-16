@@ -31,13 +31,15 @@
 		</tr>
 	</thead>
 	<tbody>
+		{% for qna in qna %}
 		<tr>  
 			<td>1</td>
-			<td><a href="{% url 'custom_voice_detail' %}" class="table_title"><span class="title2">제목</span></a></td>
-			<td>한상준</td>
-			<td>20-10-14</td>
+			<td><a href="{% url 'custom_voice_detail' %}" class="table_title"><span class="title2">{{ qna.q_title }}</span></a></td>
+			<td>{{ qna.user }}</td>
+			<td>{{ qna.q_time }}</td>
 			<td>30</td>	
 		</tr>
+		{% endfor %}
 	</tbody>
 	</table>
 		<div class="write">
