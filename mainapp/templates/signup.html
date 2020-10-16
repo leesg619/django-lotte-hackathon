@@ -29,7 +29,8 @@
                 </colgroup>
                 <tbody>
                     <tr>
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                         <th scope="row" class="vtop">회원아이디</th>
                         <td>
                             <div class="floatArea btnInc">
@@ -60,21 +61,11 @@
                         <td>
                             <span class="frmInp"><input type="password" id="repassword" name="repassword" maxlength="30" title="비밀번호 확인 입력">
                         </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">전화번호</th>
-                        <td>
-                            <div class="floatArea phoneArea">
-                                <input type="text" id="phone1" name="phone1" maxlength="3"> -
-                                <input type="text" id="phone2" name="phone2" maxlength="4"> -
-                                <input type="text" id="phone3" name="phone3" maxlength="4">
-                            </div>
-                        </td>
-                    </tr>
+                    </tr>   
                     <tr>
                         <th scope="row" class="vtop">주소</th>
                         <td>
-                            <span class="frmInp"><input type="text" maxlength="100" placeholder="주소입력">
+                            <span class="frmInp"><input type="text" name ="address" maxlength="100" placeholder="주소입력">
                         </td>
                     </tr>     
                     </tbody>
