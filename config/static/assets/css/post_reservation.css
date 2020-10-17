@@ -13,7 +13,7 @@ pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
+form, label, legend,  caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
@@ -2460,8 +2460,8 @@ input, select, textarea {
 			color: #ffffff;
 			font-size: 0.9em;
 			font-weight: 600;
-			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			/* padding: 0 0.75em 0.75em 0.75em; */
+			text-align: center;
 		}
 
 		table thead {
@@ -2516,8 +2516,8 @@ input, select, textarea {
 		background-color: transparent;
 		border: 0;
 		border-radius: 0;
-		box-shadow: inset 0 0 0 2px #ffffff;
-		color: #ffffff;
+		/* box-shadow: inset 0 0 0 2px #ffffff; */
+		/* color: #black; */
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -2831,11 +2831,11 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #D8E6E7;
+				background-color: #6fc3df;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #6e7783;
+				background-color: #8d82c4;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
@@ -3954,52 +3954,86 @@ input, select, textarea {
 			transform: none;
 			opacity: 1;
 			visibility: visible;
-		}
-.inner {
-	width: 540px;
-	min-width: 540px;
-	margin: 0 auto;
-}
-.inner .titArea h2 {
-	font-size: 56px;
-	color: #2a2a2a;
-	text-align: center;
-	padding-top: 50px;
-}
-.cont{
-	padding: 30px 40px 140px;
+        }
+        
+.post_reservation_btn{
+    width: 350px;
+    height: 60px;
+    background: #da291c;
+    color:  #ffffff;
+    border-color: none;
 
 }
 
-.loginInpList{
-	width: 450px;
-	
-} 
-.loginInpList input{
-	padding: 0 30px 0 15px;
-	border: 1px solid #c4c6c7;
-	margin-bottom: 20px;
-}
-.joinFindList{
-	display: flex;
-	justify-content: center;
-	margin-bottom: 30px;
-}
-.joinFindList span{
-	margin-right: 15px;
-	color:black;
-	
-}
-.joinFindList > a{
-	color: transparent;
+.post_reservation_info{
+    display: flex;
+    justify-content: center;
 }
 
-.login{
-	width: 450px;
+.post_reservation_info .post_reservation_info_wrap{
+    width: 800px;
 }
-.login .button{
-	width:100%;
-	background:rgb(218,41,28);
-	border: none;
-	padding: 0 15px;
+
+.post_reservation_info .post_reservation_info_wrap .info_btn_wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0 50px 0;
 }
+.info_btn_wrap a{
+	border:none;
+}
+.post_reservation_con .item_box_send_contents{
+    padding: 30px 0 30px 0;
+}
+
+table td {
+	border-bottom: 1px solid #c4c6c7;
+}
+
+.post_reservation_con .item_box_send_contents .item_box_send{
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 15px 20px;
+    border: solid 3px rgba(84, 88, 90, 100);
+    color: #da291c;
+}
+
+.t_text{
+    font-weight: bold;
+}
+
+.s_text{
+    font-size: small;
+}
+
+.button_wrap{
+    display: flex;
+    justify-content: space-around;
+}
+.button_wrap a{
+	border:none;
+}
+
+.post_reservation_reset{
+    width: 200px;
+    height: 60px;
+    background: #da291c;
+    color:  #ffffff;
+
+}
+
+.post_reservation_submit{
+    width: 200px;
+    height: 60px;
+    background: #da291c;
+    color:  #ffffff;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/post_reserve_look.css' %}">
+{% endblock %}
+
+{% block contents %}
+<!-- Banner -->
+<section id="banner" class="major">
+    <div class="inner">
+        <header class="major">
+            <h1>택배예약조회</h1>
+            <h3>회원님의 택배예약현황을 조회할 수 있습니다.</h3>
+        </header>
+</section>
+
+<!-- Main -->
+<div class="post_reservation_info">
+<div class="post_reservation_info_wrap">
+    <div class="info_btn_wrap">
+        <a href="{% url 'post_reservation' %}"><button class="post_reservation_btn">택배예약</button></a>
+        <a href="{% url 'post_reserve_look' %}"><button class="post_reservation_btn">택배예약조회</button></a>
+    </div>
+    <form action="#">
+        <div class="post_reserve_look_con">
+            <table class="reserve_table mt_60">
+                <colgroup>
+                    <col style="width:25%" span="10">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">선택</th>
+                        <th scope="col">예약번호</th>
+                        <th scope="col">진행상태</th>
+                        <th scope="col">접수일</th>
+                        <th scope="col">집하요청일</th>
+                        <th scope="col">보내는 분</th>
+                        <th scope="col">받는 분</th>
+                        <th scope="col">물품명</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">운송장번호</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>       
+                            <td><input type="checkbox" name="" id="cb1" value=""><label for="cb1"></label></td>
+                            <td><a href="{% url 'post_reserve_look_detail' %}"><div class="reserve_num">20201014008274</div></a></td>
+                            <td>예약취소</td>
+                            <td>2020.10.17</td>
+                            <td>2020.10.18</td>
+                            <td>홍길동</td>
+                            <td>홍시영</td>
+                            <td>향수</td>
+                            <td>1</td>
+                            <td></td>	
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>       
+                        <td><input type="checkbox" name="" id="cb2" value=""><label for="cb2"></label></td>
+                            <td><a href="#"><div class="reserve_num">20201014007777</div></a></td>
+                            <td>예약확인</td>
+                            <td>2020.10.18</td>
+                            <td>2020.10.21</td>
+                            <td>홍길동</td>
+                            <td>강슬기</td>
+                            <td>마스크</td>
+                            <td>2</td>
+                            <td></td>	
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="button_wrap">
+                <a href="{% url 'post_reserve_look' %}"><button class="post_reserve_cancel">예약취소</button></a>
+            </div>
+            
+        </div>
+    </form>
+</div> 
+</div>
+
+{% endblock %}

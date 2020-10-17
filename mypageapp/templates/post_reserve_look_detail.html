@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/post_reserve_look_detail.css' %}">
+{% endblock %}
+
+{% block contents %}
+<!-- Banner -->
+<section id="banner" class="major">
+    <div class="inner">
+        <header class="major">
+            <h1>택배예약조회</h1>
+            <h3>회원님의 택배예약현황을 조회할 수 있습니다.</h3>
+        </header>
+</section>
+
+<!-- Main -->
+<div class="post_reservation_info">
+<div class="post_reservation_info_wrap">
+    
+        <div class="post_reserve_look_con">
+            <table class="reserve_table mt_60">
+                <colgroup>
+                    <col style="width:20%;">
+                    <col style="width: auto;">
+                </colgroup>
+                
+                <tbody>
+                    <tr>
+                        <th scope="row">예약번호</th>
+                        <td><div class="reserve_num">20201014008274</div></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">진행상태</th>
+                        <td>예약취소</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">예약접수일</th>
+                        <td>2020.10.17</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">집하요청일</th>
+                        <td>2020.10.18</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">보내시는 분</th>
+                        <td>
+                            <div class="sendman_name">홍길동</div>
+                            <div class="sendman_address">경기 고양시 덕양구</div>  
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">받으시는 분</th>
+                        <td>
+                            <div class="receiveman_name">홍시영</div> 
+                            <div class="receiveman_address">경기 수원시 권선구</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">물품명</th>
+                        <td>향수</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">수량</th>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">고객 유의사항</th>
+                        <td>
+                            향후 고객님께서 입력하신 택배현황은 ‘예약번호’로 조회 하실 수 있으므로<br>
+                            <div class="important_m">‘예약번호’를 반드시 기억해 주시기 바랍니다.</div> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="button_wrap">
+                <a href="{% url 'post_reserve_look' %}"><button class="move_reserve_list">목록보기</button></a>
+            </div>
+            
+        </div>
+    
+</div> 
+</div>
+{% endblock %}
