@@ -16,13 +16,16 @@
 		</div>
 	</section>
 <!-- Main -->
-	<table class="tblH mt60">
+
+<!--<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >그 게시물 자체에 id 자동으로 부여(post_id라는 이름으로)-->
+{% csrf_token %}
+<table class="tblH mt60">
 		<colgroup>
 			<col span="1">
 		</colgroup>
 	<thead>
 		<tr>
-			<th colspan="5">{{ qna.q_title }}</th>
+			<th colspan="5">{{ aa.q_title }}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,10 +34,10 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td class="name">{{ qna.user }} | {{ qna.q_time }}</td>	
+			<td class="name">{{ aa.user }} | {{ aa.q_time }}</td>	
 		</tr>
 		<td class="contents" colspan="5">
-			{{ qna.q_content }}
+			{{ aa.q_content }}
 		</td>
 	</tbody>
 </table>

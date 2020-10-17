@@ -9,11 +9,8 @@ def custom_voice(request):
 
 def custom_voice_new(request):
     aa = Qna.objects.filter(user = request.user)
-
-    if request.method == 'GET'  :
-        
+    if request.method == 'GET':
         qna = Qna()
-
         qnacontent = request.POST.get('q_content')
         qnatitle = request.POST.get('q_title')
         # qnatype = request.POST.get('q_type')
@@ -30,13 +27,14 @@ def custom_voice_new(request):
         #qna.qnapublic =qnapublic
         #qna.qna =qna
         qna.user = request.user
-
         qna.save()
-        return render(request,'custom_voice_new.html', {
-        'done' : '문의 등록이 완료되었습니다.',
-        'qna' : aa
-        })
+        return render(request,'custom_voice_new.html', {'qna' : aa})
 
 
-def custom_voice_detail(request):
-    return render(request, 'custom_voice_detail.html')
+
+def custom_voice_detail(request, pk):
+    #if request.method == 'GET':
+    aa = get_object_or_404(Qna, pk = pk)
+    #post_id = request.POST.get('post_id') #히든인풋을 post_id로 저장
+    #aa = Qna.objects.POST.get(id = post_id)
+    return render(request, 'custom_voice_detail.html',{'aa':aa})
