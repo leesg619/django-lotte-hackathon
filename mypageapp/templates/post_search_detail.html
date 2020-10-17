@@ -8,10 +8,11 @@
 
 {% block contents %}
 <!-- Banner -->
+
 <section id="banner" class="major">
     <div class="inner">
         <header class="major">
-            <h1>택배 조회</h1>
+            <h1>택배 조회 </h1>
             <h3>택배 화물의 현위치를 조회 할 수 있습니다.</h3>
         </header>
     </div>
@@ -26,17 +27,19 @@
                 <th scope="col">운송장 번호</th>
                 <th scope="col">발송지</th>
                 <th scope="col">도착지</th>
-                <th scope="col">배송예상시간</th>
-                <th scope="col">배달결과</th>
+                <th scope="col">받는사람</th>
+                <th scope="col">배송상황</th>
             </tr>
         </thead>
         <tbody>
             <tr>       
-                    <td>235512248963</td>
-                    <td>대전지점</td>
-                    <td>관악대학(대)</td>
-                    <td>16:45</td>
-                    <td>배달중</td>	
+                    {% for box in box %}
+                    <td>{{box.code}}</td>
+                    <td>{{box.sender_address}}</td>
+                    <td>{{box.receiver_address}}</td>
+                    <td>{{box.sender}}</td>
+                    <td></td>	
+                    {% endfor %}
             </tr>
         </tbody>
     </table>
@@ -58,37 +61,14 @@
             </tr>
         </thead>
         <tbody>
+            {% for state in state %} 
             <tr>       
-                <td>배달완료</td>
-                <td>2020-03-25 16:14</td>
-                <td>고객</td>
-                <td>배달 완료하였습니다.
-                    (배송담당: 김철수 010-2753-4764)</td>		
+                <td></td>
+                <td>{{state.box_date}}</td>
+                <td>{{state.box_now}}</td>
+                <td>{{state.box_state}}</td>		
             </tr>
-            <tr>       
-                <td>배송출발</td>
-                <td>2020-03-25 07:48</td>
-                <td>북세종(대)</td>
-                <td>세종집배센터에 도착하였습니다.</td>		
-            </tr>
-            <tr>       
-                <td>상품이동중</td>
-                <td>2020-03-25 07:46</td>
-                <td>세종집배센터</td>
-                <td>천안TML에 도착하였습니다.</td>		
-            </tr>
-            <tr>       
-                <td>상품이동중</td>
-                <td>2020-03-24 23:14</td>
-                <td>서울동부TML</td>
-                <td>서울동부TML에 도착하였습니다.</td>		
-            </tr>
-            <tr>       
-                <td>상품접수</td>
-                <td>2020-03-24 17:23</td>
-                <td>용인북부(대)</td>
-                <td>보내시는 고객님으로부터 상품을 인수했습니다.</td>		
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
     {% endblock %}

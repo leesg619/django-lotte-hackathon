@@ -23,12 +23,19 @@
 				<header id="header" class="alt">
 					<a href="{% url 'main' %}" class="logo"><img src="{% static 'images/thumb.png' %}" alt="icon"></a>
 					<nav>
+						{% if request.user.is_authenticated %}
+						<a href="{% url 'post_search' %}">택배조회</a>
+						<a href="{% url 'logout' %}">로그아웃</a>
+						<a href="{% url 'timeline' %}">타임라인</a>
+						<a href="{% url 'custom_voice' %}">고객지원</a>
+						{% else %}
 						<a href="{% url 'post_search' %}">택배조회</a>
 						<a href="{% url 'post_reservation' %}">택배예약</a>
 						<a href="{% url 'login' %}">로그인</a>
 						<a href="{% url 'mypage' %}">마이페이지</a>
 						<a href="{% url 'timeline' %}">타임라인</a>
-						<a href="{% url 'custom_voice' %}">고객지원</a>	
+						<a href="{% url 'custom_voice' %}">고객지원</a>
+						{% endif %}	
 					</nav>
                 </header>
                     
