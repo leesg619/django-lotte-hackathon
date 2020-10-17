@@ -19,14 +19,14 @@
 	<br>
 	<br>
 		<!-- Main -->
-        <form method="post" action="{% url 'custom_voice' %}">
+        <form method="post" action="{% url 'custom_voice_new' %}">
 			{% csrf_token %}
             <div class="gtr-uniform">
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="제목을 입력해주세요" />
+                    <input type="text" name="q_title" id="demo-name" value="" placeholder="제목을 입력해주세요" />
                 </div>
 				<div class="col-12">
-					<textarea name="demo-message" id="demo-message" placeholder="내용을 입력해주세요" rows="5"></textarea>
+					<textarea name="q_content" id="demo-message" placeholder="내용을 입력해주세요" rows="5"></textarea>
 				</div>
 			</div>
 			<div class="write">

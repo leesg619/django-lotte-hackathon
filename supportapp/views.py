@@ -9,18 +9,18 @@ def custom_voice(request):
 
 def custom_voice_new(request):
     aa = Qna.objects.filter(user = request.user)
-    if request.method == 'GET':
+    if request.method == 'POST':
         qna = Qna()
-        qnacontent = request.POST.get('q_content')
-        qnatitle = request.POST.get('q_title')
+        qnacontent = request.POST['q_content']
+        qnatitle = request.POST['q_title']
         # qnatype = request.POST.get('q_type')
         # qnaboxcode = request.POST.get('q_boxcode')
         # qnatime = request.POST.get('q_time')
         #qnapublic = request.POST.get('public')
         #picture = request.FILES('picture')
 
-        qna.qnacontent = qnacontent
-        qna.qnatitle = qnatitle
+        qna.q_content = qnacontent
+        qna.q_title = qnatitle
         # qna.qnatype =qnatype
         # qna.qnaboxcode =qnaboxcode 
         # qna.qnatime =qnatime 
@@ -28,7 +28,8 @@ def custom_voice_new(request):
         #qna.qna =qna
         qna.user = request.user
         qna.save()
-        return render(request,'custom_voice_new.html', {'qna' : aa})
+        return redirect('custom_voice')
+    return render(request, 'custom_voice_new.html')
 
 
 
