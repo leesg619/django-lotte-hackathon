@@ -31,4 +31,3 @@ def post_reserve_look(request):
 
 def post_reserve_look_detail(request):
     return render(request,'post_reserve_look_detail.html')
-    

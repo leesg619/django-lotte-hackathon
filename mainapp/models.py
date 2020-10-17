@@ -19,8 +19,10 @@ class Box(models.Model):
     worker = models.CharField(max_length = 30, default ="미정") # 배송기사 이름
     worker_phone = models.CharField(max_length = 30, default = " ") # 배송기사 전화번호
     visit_date = models.DateTimeField(null = True)# 택배 예약시 방문희망일
+    box_step = models.CharField(max_length = 30)
 
 class State(models.Model):
+    step = models.CharField(max_length = 50)
     box = models.ForeignKey(Box, on_delete=models.CASCADE)
     box_date = models.DateTimeField()
     box_now = models.CharField(max_length = 50)

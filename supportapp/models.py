@@ -10,7 +10,8 @@ class Qna(models.Model):
     q_boxcode = models.CharField(max_length = 30)
     q_time = models.DateTimeField(auto_now = True)
     public = models.BooleanField(null=True)
-
+    pic = models.ImageField(null = True, upload_to="%Y/%m/%d")
+    today = models.IntegerField(default = '0')
 
 class Answer(models.Model):
     a_qna = models.ForeignKey(Qna, on_delete =models.CASCADE)
