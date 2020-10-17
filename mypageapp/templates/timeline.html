@@ -16,6 +16,7 @@
         </header>
 </section>
 
+{% if request.user.is_authenticated %}
 <!-- Main -->
 <div class="timeline_info">
     <div class="print">
@@ -23,19 +24,28 @@
         <a href="#"><img src="{% static 'images/icon_print.png' %}" alt="icon_print"></a>
         </div>
     </div>
+    {% for mybox in mybox %}
+    {% if mybox %}
     <div class="timeline">
         <div class="time">
-            <span class="date">9.16</span>
-            <span class="day">수요일</span>
+            <span class="date">{{ mybox.visit_date }}</span>
+            <!-- <span class="day">수요일</span> -->
         </div>
         <div class="delivery_info">
-            <span class="delivery_num">233726778622</span> |
-            <span class="delivery_tf">받은택배</span>
+            <span class="delivery_num">{{ mybox.code }}</span> |
+            <span class="delivery_tf">{{ mybox.box_type }}</span>
             <br>
-            <span class="delivery_state">배송완료</span> | <span class="delivery_place">(연무동)</span>
+            {% for state in state %}
+            {% if state.box == mybox %}
+            <span class="delivery_state">{{ state.box_state}}</span> | <span class="delivery_place">{{ state.box_now }}</span>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    <div class="timeline">
+    {% endif %}
+    {% endfor %}
+
+    <!-- <div class="timeline">
         <div class="time">
             <span class="date">9.16</span>
             <span class="day">수요일</span>
@@ -46,8 +56,13 @@
             <br>
             <span class="delivery_state">배송완료</span> | <span class="delivery_place">(연무동)</span>
         </div>
-    </div>
+    </div> -->
+
 </div>
+{% else %}
+<h4>로그인한 사용자만 이용하실 수 있습니다.</h4>
+<a href="{% url 'login' %}">로그인하러가기</a>
+{% endif %}
 {% endblock %}
 
         </div>

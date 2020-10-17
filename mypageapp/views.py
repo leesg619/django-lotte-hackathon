@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from mainapp.models import Box,State
+from django.contrib import auth
+from mainapp.models import *
+from .models import *
 # Create your views here.
 def post_search(request): 
     return render(request, 'post_search.html')
@@ -14,7 +16,9 @@ def post_search_detail(request):
         return render(request,'post_search_detail.html',{'box':box,'state': state})
     
 def timeline(request):
-    return render(request, 'timeline.html')
+    mybox = Box.objects.filter(receiver = request.user.username)|Box.objects.filter(sender = request.user.username)
+    state = State.objects.all()
+    return render(request, 'timeline.html',{'mybox':mybox,'state':state,})  
 
 def mypage(request):
     return render(request,'mypage.html')
@@ -27,3 +31,4 @@ def post_reserve_look(request):
 
 def post_reserve_look_detail(request):
     return render(request,'post_reserve_look_detail.html')
+    
