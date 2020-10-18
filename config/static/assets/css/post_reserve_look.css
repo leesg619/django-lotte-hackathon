@@ -2024,7 +2024,8 @@ input, select, textarea {
 
 			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
-				background:#da291c;
+				background:rgba(212, 212, 255, 0.035);
+				border: 1px #8a8d8f solid;
 				content: '';
 				display: inline-block;
 				font-size: 0.8em;
@@ -3982,25 +3983,24 @@ input, select, textarea {
 	width: 800px;
 	margin: 0 auto;
 	display: flex;
-    justify-content: space-between;
-    padding: 50px 0 50px 0;
+   justify-content: space-around;
+   padding: 80px 0 35px 0;
 }
 
 .reserve_table {
-    border-collapse: separate;
+   border-collapse: separate;
 }
 .reserve_table {
-    border-top: 4px solid #da291c;
+   border-top: 4px solid #da291c;
 }
 .mt_60 {
 	margin-top: 60px !important;
 	margin-bottom: 60px;
 }
 table {
-    table-layout: fixed;
-    width: 1050px;
-    border-collapse: collapse;
-    border-spacing: 0;
+   table-layout: fixed;
+   border-collapse: collapse;
+   border-spacing: 0;
 	word-break: break-all;
 	margin:0 auto;
 }
@@ -4010,6 +4010,7 @@ table {
     border-bottom: 1px solid #8a8d8f;
 	color: #2a2a2a;
 	margin: 0 auto;
+	padding: 0px;
 }
 
 .reserve_table td {
