@@ -1,5 +1,6 @@
 from django.db import models
 from mypageapp.models import User
+
 # Create your models here.
 
 class Qna(models.Model):
@@ -13,6 +14,7 @@ class Qna(models.Model):
     pic = models.ImageField(null = True, upload_to="%Y/%m/%d")
     today = models.IntegerField(default = '0')
 
+   
 class Answer(models.Model):
     a_qna = models.ForeignKey(Qna, on_delete =models.CASCADE)
     a_title = models.CharField(max_length = 200)

@@ -34,7 +34,7 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td class="name">{{ aa.user }} | {{ aa.q_time }}</td>	
+			<td class="name">{{ aa.user }} | {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>	
 		</tr>
 		<td class="contents" colspan="5">
 			{{ aa.q_content }}
