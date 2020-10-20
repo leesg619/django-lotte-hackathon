@@ -28,15 +28,16 @@
     {% if mybox %}
     <div class="timeline">
         <div class="time">
+            {% for state in state %}
+            {% if state.box == mybox %}
             <span class="date">{{ mybox.visit_date }}</span>
             <!-- <span class="day">수요일</span> -->
         </div>
         <div class="delivery_info">
             <span class="delivery_num">{{ mybox.code }}</span> |
-            <span class="delivery_tf">{{ mybox.box_type }}</span>
+            <span class="delivery_tf">{% if mybox.box_type == True %}받는택배 {% else %}보낸택배 {% endif %}</span>
             <br>
-            {% for state in state %}
-            {% if state.box == mybox %}
+
             <span class="delivery_state">{{ state.box_state}}</span> | <span class="delivery_place">{{ state.box_now }}</span>
             {% endif %}
             {% endfor %}
@@ -45,10 +46,10 @@
     {% endif %}
     {% endfor %}
 
-    <!-- <div class="timeline">
+    <div class="timeline">
         <div class="time">
             <span class="date">9.16</span>
-            <span class="day">수요일</span>
+            <span class="day">수요일{{ request.user }}</span>
         </div>
         <div class="delivery_info">
             <span class="delivery_num">233726778622</span> |
@@ -56,7 +57,7 @@
             <br>
             <span class="delivery_state">배송완료</span> | <span class="delivery_place">(연무동)</span>
         </div>
-    </div> -->
+    </div>
 
 </div>
 {% else %}
@@ -64,6 +65,7 @@
 <a href="{% url 'login' %}">로그인하러가기</a>
 {% endif %}
 {% endblock %}
+
 
         </div>
     </body>

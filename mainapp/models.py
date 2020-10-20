@@ -35,6 +35,11 @@ class State(models.Model):
     box_date = models.DateTimeField()
     box_now = models.ForeignKey(Location, on_delete=models.CASCADE)
     box_state = models.CharField(max_length = 30)
-
+    
+    # @property
+    # def latest_state(self,box):
+    #     states=State.objects.filter(box=box).order_by('box_date')
+    #     return states[0]
+            
 
 
