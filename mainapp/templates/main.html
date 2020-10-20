@@ -11,7 +11,7 @@
 			<form action="{% url 'post_search_detail'%}" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 			<div class="content">
-				<input type="text" placeholder="-제외한 숫자만 공백없이 입력">
+				<input type="text" name = 'code' placeholder="-제외한 숫자만 공백없이 입력">
 				<input type="submit" value="조회">
 			</div>
 		</div>
