@@ -19,7 +19,7 @@
 <!-- Main -->
 <div class="post_reservation_info">
 <div class="post_reservation_info_wrap">
-    
+        {% if request.user.is_authenticated %}
         <div class="post_reserve_look_con">
             <table class="reserve_table mt_60">
                 <colgroup>
@@ -30,21 +30,19 @@
                 <tbody>
                     <tr>
                         <th scope="row">회원아이디</th>
-                        <td>ppg0226</td>
+                        <td>{{ request.user.username }}</td>
                     </tr>
                     <tr>
                         <th scope="row">성명</th>
-                        <td>홍길동</td>
+                        <td>{{ request.user.name }}</td>
                     </tr>
                     <tr>
                         <th scope="row">전화번호</th>
-                        <td>
-                            01012345678                          
-                        </td>
+                        <td>{{ request.user.phone }} </td>
                     </tr>
                     <tr>
-                        <th scope="row">생년월일</th>
-                        <td>1980.10.18</td>
+                        <th scope="row">주소</th>
+                        <td>{{ request.user.address }}</td>
                     </tr>
                     <tr>
                         <th scope="row">비밀번호</th>
@@ -54,10 +52,10 @@
                             </form>
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th scope="row">마이포인트</th>
                         <td>1,020p</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
 
@@ -66,7 +64,10 @@
             </div>
             
         </div>
-    
+    {% else %}
+    <h4>로그인한 사용자만 이용하실 수 있습니다.</h4>
+    <a href="{% url 'login' %}">로그인하러가기</a>
+    {% endif %}
 </div> 
 </div>
 {% endblock %}
