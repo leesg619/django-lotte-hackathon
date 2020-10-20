@@ -13,7 +13,8 @@ def post_search_detail(request):
         return render(request,'post_search.html',{'error':'존재하지 않는 송장번호입니다.'})
     else :
         state = reversed(State.objects.filter(box = box[0]))
-        return render(request,'post_search_detail.html',{'box':box,'state': state})
+        states = reversed(State.objects.filter(box = box[0]))
+        return render(request,'post_search_detail.html',{'box':box,'state': state,'states':states})
     
 def timeline(request):
     mybox = Box.objects.filter(receiver = request.user.username)|Box.objects.filter(sender = request.user.username)
