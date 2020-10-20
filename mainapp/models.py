@@ -21,10 +21,20 @@ class Box(models.Model):
     visit_date = models.DateTimeField(null = True)# 택배 예약시 방문희망일
     box_step = models.CharField(max_length = 30)
 
+
+class Location(models.Model):
+    name = models.CharField(max_length = 30) # 위치
+    lo = models.CharField(max_length = 50) # 경도
+    la = models.CharField(max_length = 50) # 위도
+    des = models.TextField() # 마커 설명 
+
+
 class State(models.Model):
     step = models.CharField(max_length = 50)
     box = models.ForeignKey(Box, on_delete=models.CASCADE)
     box_date = models.DateTimeField()
-    box_now = models.CharField(max_length = 50)
+    box_now = models.ForeignKey(Location, on_delete=models.CASCADE)
     box_state = models.CharField(max_length = 30)
+
+
 
