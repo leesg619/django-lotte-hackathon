@@ -40,24 +40,29 @@
                         <th scope="col">받는 분</th>
                         <th scope="col">물품명</th>
                         <th scope="col">수량</th>
-                        <th scope="col">운송장번호</th>
+                        <th scope="col">운송장정보</th>
                     </tr>
                 </thead>
+                {% for mybox in mybox %}
+                {% if mybox %}
                 <tbody>
-                    <tr>       
+                    <tr>    
+                            <input name = 'mybox_id' type = 'hidden' value = "{{ mybox.id }}">
                             <td><input type="checkbox" name="" id="cb1" value=""><label for="cb1"></label></td>
-                            <td><a href="{% url 'post_reserve_look_detail' %}"><div class="reserve_num">20201014008274</div></a></td>
-                            <td>예약취소</td>
-                            <td>2020.10.17</td>
-                            <td>2020.10.18</td>
-                            <td>홍길동</td>
-                            <td>홍시영</td>
-                            <td>향수</td>
-                            <td>1</td>
-                            <td></td>	
+                            <td><a href="{% url 'post_reserve_look_detail' mybox.id %}"><div class="reserve_num">{{ mybox.code }}</div></a></td>
+                            <td>(box_step) {{ mybox.box_step }}</td>
+                            <td>접 수 일</td>
+                            <td>{{ mybox.visit_date|date:"Y-m-d" }}</td>
+                            <td>{{ mybox.sender }}</td>
+                            <td>{{ mybox.receiver }}</td>
+                            <td>{{ mybox.box_detail }}</td>
+                            <td>수 량</td>
+                            <td>{{ mybox.worker }}({{ mybox.worker_phone }})</td>	
                     </tr>
                 </tbody>
-                <tbody>
+                {% endif %}
+                {% endfor %}
+                <!-- <tbody>
                     <tr>       
                         <td><input type="checkbox" name="" id="cb2" value=""><label for="cb2"></label></td>
                             <td><a href="#"><div class="reserve_num">20201014007777</div></a></td>
@@ -70,7 +75,7 @@
                             <td>2</td>
                             <td></td>	
                     </tr>
-                </tbody>
+                </tbody> -->
 
             </table>
 

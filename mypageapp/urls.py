@@ -9,6 +9,6 @@ urlpatterns = [
     path('mypage', views.mypage, name="mypage"),
     path('post_reservation.html', views.post_reservation, name="post_reservation"),
     path('post_reserve_look.html', views.post_reserve_look, name="post_reserve_look"),
-    path('post_reserve_look_detail', views.post_reserve_look_detail, name="post_reserve_look_detail"),
+    path('post_reserve_look_detail/<int:pk>', views.post_reserve_look_detail, name="post_reserve_look_detail"),
     
 ]

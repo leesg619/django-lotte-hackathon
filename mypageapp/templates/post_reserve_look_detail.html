@@ -26,45 +26,46 @@
                     <col style="width:20%;">
                     <col style="width: auto;">
                 </colgroup>
-                
+                {% for mybox in mybox %}
+                {% if mybox %}
                 <tbody>
                     <tr>
                         <th scope="row">예약번호</th>
-                        <td><div class="reserve_num">20201014008274</div></td>
+                        <td><div class="reserve_num">{{ mybox.code }}</div></td>
                     </tr>
                     <tr>
                         <th scope="row">진행상태</th>
-                        <td>예약취소</td>
+                        <td>(box_step) {{ mybox.box_step }}</td>
                     </tr>
                     <tr>
                         <th scope="row">예약접수일</th>
-                        <td>2020.10.17</td>
+                        <td>접 수 일</td>
                     </tr>
                     <tr>
                         <th scope="row">집하요청일</th>
-                        <td>2020.10.18</td>
+                        <td>{{ mybox.visit_date|date:"Y-m-d" }}</td>
                     </tr>
                     <tr>
                         <th scope="row">보내시는 분</th>
                         <td>
-                            <div class="sendman_name">홍길동</div>
-                            <div class="sendman_address">경기 고양시 덕양구</div>  
+                            <div class="sendman_name">{{ mybox.sender }}</div>
+                            <div class="sendman_address">주소 :{{ mybox.sender_address }}</div>  
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">받으시는 분</th>
                         <td>
-                            <div class="receiveman_name">홍시영</div> 
-                            <div class="receiveman_address">경기 수원시 권선구</div>
+                            <div class="receiveman_name">{{ mybox.receiver }}</div> 
+                            <div class="receiveman_address">주소 :{{ mybox.receiver_address }}</div>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">물품명</th>
-                        <td>향수</td>
+                        <td>{{ mybox.box_detail }}</td>
                     </tr>
                     <tr>
                         <th scope="row">수량</th>
-                        <td>1</td>
+                        <td>수 량</td>
                     </tr>
                     <tr>
                         <th scope="row">고객 유의사항</th>
@@ -74,6 +75,8 @@
                         </td>
                     </tr>
                 </tbody>
+                {% endif %}
+                {% endfor %}
             </table>
 
             <div class="button_wrap">

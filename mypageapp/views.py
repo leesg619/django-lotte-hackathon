@@ -66,8 +66,12 @@ def post_reservation(request):
     return render(request,'post_reservation.html')
 
 def post_reserve_look(request):
+    yoo = get_object_or_404(User, username=request.user)
+    name = yoo.name
+    mybox=reversed(Box.objects.filter(sender=name))
+    
+    return render(request,'post_reserve_look.html',{'mybox':mybox})
 
-    return render(request,'post_reserve_look.html')
-
-def post_reserve_look_detail(request):
-    return render(request,'post_reserve_look_detail.html')
+def post_reserve_look_detail(request,pk):
+    mybox = Box.objects.filter(pk = pk)
+    return render(request,'post_reserve_look_detail.html',{'mybox':mybox})
