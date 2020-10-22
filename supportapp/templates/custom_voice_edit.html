@@ -42,7 +42,7 @@
                         </tr>
                         <tr>
                             <td>운송장번호</td>
-                            <td><input type="text" name="q_boxcode" id="number" placeholder="-제외한 숫자만 입력"/></td>
+                            <td><input type="text" name="q_boxcode" id="number" placeholder="{{ aa.q_boxcode }}"/></td>
                         </tr>
                         <tr>
                             <td>유형선택</td>
@@ -61,12 +61,20 @@
                         </tr>
                         <tr>
                             <td>제목</td>
-                            <td><input type="text" name = "q_title" placeholder="20자 이내로 입력"></td>
+                            <td><input type="text" name = "q_title" placeholder="{{ aa.q_title }}"></td>
                         </tr>
                         <tr>
                              <td>내용</td>
-                            <td><textarea class="thousands" name = "q_content"></textarea></td>
+                            <td><textarea class="thousands" placeholder="{{ aa.q_content }}" name = "q_content"></textarea></td>
                         </tr>
+                        <td class="contents" colspan="5">
+                            {% if aa.pic %}
+                        
+                            <img src="{{ aa.pic.url }}"  alt="dd" width="100px" height="90px">
+                          
+                            {% endif %}
+                        
+                        </td>
                         <tr>
                             <td>파일첨부</td>
                             <td>
