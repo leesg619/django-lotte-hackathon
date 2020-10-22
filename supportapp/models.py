@@ -13,6 +13,7 @@ class Qna(models.Model):
     public = models.BooleanField(null=True)
     pic = models.ImageField(null = True, upload_to="%Y/%m/%d")
     today = models.IntegerField(default = '0')
+    answer = models.TextField(null=True)
 
    
 class Answer(models.Model):

@@ -17,17 +17,18 @@
         </header>
     </div>
 </section>
-
+{% if request.user.is_authenticated %}
     <!-- Main -->
     <div class="post_reservation_info">
         <div class="post_reservation_info_wrap">
             <div class="black">고객의 소리</div>
             <div class="smallblack">저희 서비스를 이용하면서 느끼신 불편한 사항이나 칭찬할 만한 내용에 대하여 의견을 남기실 수 있습니다.</div>
             
-        {% if request.user.is_authenticated %}
+        
         
         <fieldset>
-        <form method="post" action="{% url 'custom_voice_new' %}" enctype="multipart/form-data">
+        <form method="post" action="{% url 'custom_voice_edit' %}" enctype="multipart/form-data">
+            <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" ><!--그 게시물 자체에 id 자동으로 부여(post_id라는 이름으로)-->
             {% csrf_token %}
             <div class="post_reservation_con">
                 <div class="item_box_send_contents">
@@ -47,7 +48,7 @@
                         <tr>
                             <td>유형선택</td>
                             <td><select name="q_type">
-                                <option value="">선택</option>
+                                <option value="">{{ aa.q_type }}</option>
                                 <option value="기타">기타</option>
                                 <option value="불친절">불친절</option>
                                 <option value="지연배송">지연배송</option>
@@ -65,7 +66,7 @@
                         </tr>
                         <tr>
                              <td>내용</td>
-                            <td><textarea class="thousands" placeholder="{{ aa.q_content }}" name = "q_content"></textarea></td>
+                            <td><textarea class="thousands" placeholder="" name = "q_content">{{ aa.q_content }}</textarea></td>
                         </tr>
                         <td class="contents" colspan="5">
                             {% if aa.pic %}
@@ -91,8 +92,9 @@
                     <input type="radio" value = "True" id="demo-priority-high" checked  name="public" ><label for="demo-priority-high"></label>공개
                     <input type="radio" value = "False" id="demo-priority-high1" name="public" ><label for="demo-priority-high1"></label>비공개
                 </div>
+                
                 <div class="button_wrap">
-                    <button type="submit" class="post_reservation_reset">등록</button>
+                    <button type="submit" class="post_reservation_reset">수정</button>
                 </div>
             </div>
         </form>
