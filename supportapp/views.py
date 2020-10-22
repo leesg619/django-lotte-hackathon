@@ -22,6 +22,7 @@ def custom_voice_new(request):
         qnaboxcode = request.POST.get('q_boxcode')
         qnatime = request.POST.get('q_time')
         qnapublic = request.POST.get('public')
+        qnaanswer = request.POST.get('answers')
         pic = request.FILES['pic']
 
         qna.q_content = qnacontent
@@ -31,6 +32,7 @@ def custom_voice_new(request):
         qna.q_time =qnatime 
         qna.public =qnapublic
         qna.pic = pic
+        qna.answers = qnaanswer
         qna.user = request.user
         qna.save()
         return redirect('custom_voice')
@@ -44,7 +46,7 @@ def custom_voice_new(request):
         qnaboxcode = request.POST.get('q_boxcode')
         qnatime = request.POST.get('q_time')
         qnapublic = request.POST.get('public')
-        
+        qnaanswer = request.POST.get('answers')
 
         qna.q_content = qnacontent
         qna.q_title = qnatitle
@@ -52,6 +54,7 @@ def custom_voice_new(request):
         qna.q_boxcode =qnaboxcode 
         qna.q_time =qnatime 
         qna.public =qnapublic
+        qna.answers = qnaanswer
         
         qna.user = request.user
         qna.save()
@@ -87,14 +90,16 @@ def custom_voice_edit(request): #post로 받아오자
         qnaboxcode = request.POST.get('q_boxcode')
         qnatime = request.POST.get('q_time')
         qnapublic = request.POST.get('public')
+        qnaanswer = request.POST.get('answers')
         pic = request.FILES['pic']
-
+        
         aa.q_content = qnacontent
         aa.q_title = qnatitle
         aa.q_type =qnatype
         aa.q_boxcode =qnaboxcode 
         aa.q_time =qnatime 
         aa.public =qnapublic
+        aa.answers = qnaanswer
         aa.pic = pic
         aa.user = request.user
         aa.save()

@@ -27,8 +27,10 @@
 			<th scope="col">번호</th>
 			<th class="title" scope="col">제목</th>
 			<th scope="col">작성자</th>
+			<th scope="col">답변여부</th>
 			<th class="date" scope="col">작성날짜</th>
 			<th scope="col">조회수</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -37,6 +39,13 @@
 			<td><span class="t"></span>{{ qna.id }}</td>
 			<td><a href="{% url 'custom_voice_detail' qna.pk %}" class="table_title"><span class="title2">{{ qna.q_title }}</span></a></td>
 			<td>{{ qna.user }}</td>
+			<td>
+				{% if qna.answers %}
+				답변완료
+				{% else %}
+				답변대기중
+				{% endif %}
+			</td>
 			<td>{{ qna.q_time|date:"Y-m-d"}} {{ qna.q_time|time:"h:i"}}</td>
 			<td>{{ qna.today }}</td>	
 		</tr>

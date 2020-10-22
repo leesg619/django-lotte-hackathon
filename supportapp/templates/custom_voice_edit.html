@@ -17,7 +17,7 @@
         </header>
     </div>
 </section>
-{% if request.user.is_authenticated %}
+
     <!-- Main -->
     <div class="post_reservation_info">
         <div class="post_reservation_info_wrap">
@@ -68,18 +68,17 @@
                              <td>내용</td>
                             <td><textarea class="thousands" placeholder="" name = "q_content">{{ aa.q_content }}</textarea></td>
                         </tr>
-                        <td class="contents" colspan="5">
-                            {% if aa.pic %}
                         
-                            <img src="{{ aa.pic.url }}"  alt="dd" width="100px" height="90px">
-                          
-                            {% endif %}
-                        
-                        </td>
                         <tr>
                             <td>파일첨부</td>
                             <td>
+                                
                                 <div class="filebox bs3-primary preview-image">
+                                    {% if aa.pic %}
+                        
+                                    <img src="{{ aa.pic.url }}"  alt="dd" width="100px" height="90px">
+                          
+                                    {% endif %}
                                     <input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
                                     <label for="input_file">파일첨부</label> 
                                     <input type="file" id="input_file" name="pic" class="upload-hidden"> 
@@ -88,10 +87,10 @@
                         </tr>
                     </table>
                 </div>
-                <div class="open">
+                <!--<div class="open">
                     <input type="radio" value = "True" id="demo-priority-high" checked  name="public" ><label for="demo-priority-high"></label>공개
                     <input type="radio" value = "False" id="demo-priority-high1" name="public" ><label for="demo-priority-high1"></label>비공개
-                </div>
+                </div>-->
                 
                 <div class="button_wrap">
                     <button type="submit" class="post_reservation_reset">수정</button>
@@ -99,10 +98,7 @@
             </div>
         </form>
         </fieldset>
-        {% else %}
-		<h4>로그인한 사용자만 이용하실 수 있습니다.</h4>
-		<a href="{% url 'login' %}">로그인하러가기</a>
-		{% endif %}
+        
         </div>
     </div>
 
