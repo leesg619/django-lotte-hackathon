@@ -49,7 +49,7 @@
 	
 		{% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
              
-            <form action = '#' style = "display : inline; "><!--pk 사용 x-->
+            <form action = '{% url "custom_voice_edit" %}' style = "display : inline; "><!--pk 사용 x-->
                
                 <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
                 <button type = 'submit' style = "float:right; border: 1px solid blue; background-color: rgba(0,0,0,0); color: blue; padding: 5px;">수정</button>
