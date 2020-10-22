@@ -7,44 +7,58 @@
 
 {% block contents %}
 <!-- Banner -->
-	<section id="banner" class="major">
-		<div class="inner">
-			<header class="major">
-            	<h1>고객의 소리</h1>
+   <section id="banner" class="major">
+      <div class="inner">
+         <header class="major">
+               <h1>고객의 소리</h1>
                 <h3>택배 관련 건의사항을 작성하고 볼 수 있습니다.</h3>
-			</header>
-		</div>
-	</section>
+         </header>
+      </div>
+   </section>
 <!-- Main -->
 
 <!--<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >그 게시물 자체에 id 자동으로 부여(post_id라는 이름으로)-->
 {% csrf_token %}
 <table class="tblH mt60">
-		<colgroup>
-			<col span="1">
-		</colgroup>
-	<thead>
+      <colgroup>
+         <col span="1">
+      </colgroup>
+   <thead>
+      <tr>
+         <th colspan="5">{{ aa.q_title }}</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr colspan="4">  
+
+         <td></td>
+         <td></td>
+         <td colspan="3" class="name">작성자 {{ aa.user }} | 등록일 {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>   
+      </tr>
+      <td class="contents" colspan="5">
+         {% if aa.pic %}
+      
+         <img src="{{ aa.pic.url }}"  alt="dd" width="60%" style="margin-left: auto; margin-right: auto; display: block;">
+        
+         {% endif %}
+         <br>
+         <div class="content">{{ aa.q_content }} </div>
+      </td>
+      
+   
+      {% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
+             
+
+		{% endif %}
+	<tfoot>
 		<tr>
-			<th colspan="5">{{ aa.q_title }}</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr colspan="5">  
 			<td></td>
 			<td></td>
 			<td></td>
-			<td></td>
-			<td class="name">작성자 {{ aa.user }} | 등록일 {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>	
-		</tr>
-		<td class="contents" colspan="5">
-			{% if aa.pic %}
-		
-			<img src="{{ aa.pic.url }}"  alt="dd" width="100px" height="90px">
-		  
-			{% endif %}
-			<br>
-			{{ aa.q_content }}
-		</td>
+			<td>
+			</td>
+			<td>
+			<form action = '#' style = "float:left;"><!--pk 사용 x-->
 		
 	
 		{% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
@@ -68,7 +82,8 @@
 		
 	</tbody>
 </table>
+
 {% endblock %}
-		</div>
-	</body>
+      </div>
+   </body>
 </html>
