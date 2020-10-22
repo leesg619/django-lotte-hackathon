@@ -7,68 +7,81 @@
 
 {% block contents %}
 <!-- Banner -->
-	<section id="banner" class="major">
-		<div class="inner">
-			<header class="major">
-            	<h1>고객의 소리</h1>
+   <section id="banner" class="major">
+      <div class="inner">
+         <header class="major">
+               <h1>고객의 소리</h1>
                 <h3>택배 관련 건의사항을 작성하고 볼 수 있습니다.</h3>
-			</header>
-		</div>
-	</section>
+         </header>
+      </div>
+   </section>
 <!-- Main -->
 
 <!--<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >그 게시물 자체에 id 자동으로 부여(post_id라는 이름으로)-->
 {% csrf_token %}
 <table class="tblH mt60">
-		<colgroup>
-			<col span="1">
-		</colgroup>
-	<thead>
+      <colgroup>
+         <col span="1">
+      </colgroup>
+   <thead>
+      <tr>
+         <th colspan="5">{{ aa.q_title }}</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr colspan="4">  
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td class="name">작성자 {{ aa.user }} | 등록일 {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>   
+      </tr>
+      <td class="contents" colspan="5">
+         {% if aa.pic %}
+      
+         <img src="{{ aa.pic.url }}"  alt="dd" width="60%" style="margin-left: auto; margin-right: auto; display: block;">
+        
+         {% endif %}
+         <br>
+         <div class="content">{{ aa.q_content }} </div>
+      </td>
+      
+   
+      {% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
+             
+
+		{% endif %}
+	<tfoot>
 		<tr>
-			<th colspan="5">{{ aa.q_title }}</th>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>
+			</td>
+			<td>
+			<form action = '#' style = "float:left;"><!--pk 사용 x-->
+		
+				<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
+				<button type = 'submit' class="button ">수정</button>
+				<p style = 'color : blue; font-size: 10px;'></p>
+			</form>	
+			<form action = '{% url "deletevoice"  %}' style = "float:left;">
+			
+			
+				<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >
+				<button type = 'submit' class="button 	primary solid" style= "margin-left:10px;">삭제</button>
+				<p style = 'color : red; font-size: 10px;'></p>
+					
+			</form>
+
+</td>
 		</tr>
-	</thead>
-	<tbody>
-		<tr colspan="5">  
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td class="name">작성자 {{ aa.user }} | 등록일 {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>	
-		</tr>
-		<td class="contents" colspan="5">
-			{% if aa.pic %}
-		
-			<img src="{{ aa.pic.url }}"  alt="dd" width="100px" height="90px">
-		  
-			{% endif %}
-			<br>
-			{{ aa.q_content }}
-		</td>
-		
-	
-		{% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
-             
-            <form action = '#' style = "display : inline; "><!--pk 사용 x-->
-               
-                <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
-                <button type = 'submit' style = "float:right; border: 1px solid blue; background-color: rgba(0,0,0,0); color: blue; padding: 5px;">수정</button>
-                <p style = 'color : blue; font-size: 10px;'></p>
-            </form>
-             
-            <form action = '{% url "deletevoice"  %}' style = "display : inline; ">
-               
-                
-                <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >
-                <button type = 'submit' style = "float:right; border: 1px solid red; background-color: rgba(0,0,0,0); color: red; padding: 5px;">삭제</button>
-                <p style = 'color : red; font-size: 10px;'></p>
-                   
-            </form>
-        {% endif %}
-		
-	</tbody>
+	</tfoot>
+      
+   </tbody>
 </table>
+
 {% endblock %}
-		</div>
-	</body>
+      </div>
+   </body>
 </html>
