@@ -44,14 +44,14 @@
                         <th scope="row">주소</th>
                         <td>{{ request.user.address }}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th scope="row">비밀번호</th>
                         <td>
                             <form action="#" method="post" enctype="multipart/form-data">
                                 <input type="submit" class="password_change" value="비밀번호 변경"> 
                             </form>
                         </td>
-                    </tr>
+                    </tr> -->
                     <!-- <tr>
                         <th scope="row">마이포인트</th>
                         <td>1,020p</td>
@@ -64,10 +64,7 @@
             </div>
             
         </div>
-    {% else %}
-    <h4>로그인한 사용자만 이용하실 수 있습니다.</h4>
-    <a href="{% url 'login' %}">로그인하러가기</a>
-    {% endif %}
+        {% endif %}
 </div> 
 </div>
 {% endblock %}
