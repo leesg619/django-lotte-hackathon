@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render,redirect, redirect,get_object_or_404
 from django.contrib import auth
 from mainapp.models import *
 from .models import *
@@ -18,19 +18,24 @@ def post_search_detail(request):
         states = reversed(State.objects.filter(box = box[0]))
         return render(request,'post_search_detail.html',{'box':box,'state': state,'states':states})
     
-def timeline(request):
-    yoo = get_object_or_404(User, username=request.user)
-    name = yoo.name
-    mybox= Box.objects.filter(receiver = name)|Box.objects.filter(sender=name)
-    state=State.objects.all()
-    return render(request, 'timeline.html',{'mybox':mybox,'state':state})
-
+def timeline(request):#비로그인시에도 넘겨줄수있도록
+    if request.user.is_authenticated:
+        yoo = get_object_or_404(User, username=request.user)
+        name = yoo.name
+        mybox= Box.objects.filter(receiver = name)|Box.objects.filter(sender=name)
+        state=State.objects.filter(box_latest= True)
+        return render(request, 'timeline.html',{'mybox':mybox,'state':state})
+    else:
+        return redirect('login')
 def mypage(request):
-    return render(request,'mypage.html')
+    if request.user.is_authenticated:
+        return render(request,'mypage.html')
+    else:
+        return redirect('login')
 
 def post_reservation(request):
     boxes=Box.objects.all()
-    _LENGTH = 8 # 몇자리? 
+    _LENGTH = 8 # 자리수 설정
     string_pool = string.digits # "0123456789" 
     result = "" # 결과 값 
     loop=True
@@ -58,6 +63,11 @@ def post_reservation(request):
         box.receiver_address=request.POST['receiver_address']
         box.box_detail=request.POST['box_detail']
         
+        box.box_amount=request.POST['box_amount']
+        box.box_size=request.POST['box_size']
+        box.box_value=request.POST['box_value']
+        box.box_pay=request.POST['box_pay']
+
         box.box_step='1'
         box.worker="미정"
         box.worker_phone="010-"
@@ -66,12 +76,23 @@ def post_reservation(request):
     return render(request,'post_reservation.html')
 
 def post_reserve_look(request):
-    yoo = get_object_or_404(User, username=request.user)
-    name = yoo.name
-    mybox=reversed(Box.objects.filter(sender=name))
-    
-    return render(request,'post_reserve_look.html',{'mybox':mybox})
+    if request.user.is_authenticated:
+        yoo = get_object_or_404(User, username=request.user)
+        name = yoo.name
+        mybox=reversed(Box.objects.filter(sender=name))
+        return render(request,'post_reserve_look.html',{'mybox':mybox})
+    else:
+        return redirect('login')
+
+def post_reserve_delete(request):
+    mybox_id = request.POST['mybox_id']
+    mybox = Box.objects.get(id = mybox_id)
+    mybox.delete()
+    return redirect('post_reserve_look')
 
 def post_reserve_look_detail(request,pk):
-    mybox = Box.objects.filter(pk = pk)
-    return render(request,'post_reserve_look_detail.html',{'mybox':mybox})
+    if request.user.is_authenticated:
+        mybox = Box.objects.filter(pk = pk)
+        return render(request,'post_reserve_look_detail.html',{'mybox':mybox})
+    else:
+        return redirect('login')

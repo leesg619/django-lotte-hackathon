@@ -23,7 +23,8 @@
         <a href="{% url 'post_reservation' %}"><button class="post_reservation_btn">택배예약</button></a>
         <a href="{% url 'post_reserve_look' %}"><button class="post_reservation_btn">택배예약조회</button></a>
     </div>
-    <form action="#">
+    <form name="frm" action="{% url 'post_reserve_delete' %}" method="post" onsubmit="return isValidSubmit()">
+        {% csrf_token %}
         <div class="post_reserve_look_con">
             <table class="reserve_table mt_60">
                 <colgroup>
@@ -48,44 +49,48 @@
                 <tbody>
                     <tr>    
                             <input name = 'mybox_id' type = 'hidden' value = "{{ mybox.id }}">
-                            <td><input type="checkbox" name="" id="cb1" value=""><label for="cb1"></label></td>
+                            <td><input type="radio" name="check" id="{{ mybox.id }}" value="1"><label for="{{ mybox.id }}"></label></td>
                             <td><a href="{% url 'post_reserve_look_detail' mybox.id %}"><div class="reserve_num">{{ mybox.code }}</div></a></td>
-                            <td>(box_step) {{ mybox.box_step }}</td>
-                            <td>접 수 일</td>
+                            <td>{{ mybox.box_step }}</td>
+                            <td>{{ mybox.create_date|date:"Y-m-d" }}</td>
                             <td>{{ mybox.visit_date|date:"Y-m-d" }}</td>
-                            <td>{{ mybox.sender }}</td>
+                            <td>{{ mybox.sender }}</td> 
                             <td>{{ mybox.receiver }}</td>
                             <td>{{ mybox.box_detail }}</td>
-                            <td>수 량</td>
-                            <td>{{ mybox.worker }}({{ mybox.worker_phone }})</td>	
+                            <td>{{ mybox.box_amount }}</td>
+                            <td>{{ mybox.worker }}<br>({{ mybox.worker_phone }})</td>
                     </tr>
+                    
                 </tbody>
                 {% endif %}
                 {% endfor %}
-                <!-- <tbody>
-                    <tr>       
-                        <td><input type="checkbox" name="" id="cb2" value=""><label for="cb2"></label></td>
-                            <td><a href="#"><div class="reserve_num">20201014007777</div></a></td>
-                            <td>예약확인</td>
-                            <td>2020.10.18</td>
-                            <td>2020.10.21</td>
-                            <td>홍길동</td>
-                            <td>강슬기</td>
-                            <td>마스크</td>
-                            <td>2</td>
-                            <td></td>	
-                    </tr>
-                </tbody> -->
-
             </table>
+            
 
             <div class="button_wrap">
-                <a href="{% url 'post_reserve_look' %}"><button class="post_reserve_cancel">예약취소</button></a>
+                <input type="submit" class="post_reserve_cancel" onclick="alertfunc()" value="예약취소">
             </div>
-            
+
         </div>
     </form>
 </div> 
 </div>
-
+<script>
+    function alertfunc() {
+        var form= document.frm;
+        if (!form.check.value){
+            alert("아무것도 체크되지 않았습니다");
+            form.check.select();
+            event.returnValue=false;
+        }
+    }
+</script>
+<script>
+    function isValidSubmit() {
+        var form=document.frm;
+        if(!form.check.value) return false;
+        
+        return true;
+    }
+</script>
 {% endblock %}

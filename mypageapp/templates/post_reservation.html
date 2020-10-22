@@ -91,12 +91,12 @@
                 </tr>
                 <tr>
                     <td>물품가액*</td>
-                    <td><input type="text" placeholder="최대 300만원까지 입력"></td>
+                    <td><input type="text" name=box_value placeholder="최대 300만원까지 입력"></td>
                 </tr>
                 <tr>
                     <td>물품크기*</td>
                     <td>
-                        <select>
+                        <select name=box_size>
                             <option value="">선택</option>
                             <option value="소형">소형</option>
                             <option value="중형">중형</option>
@@ -106,19 +106,19 @@
                 </tr>
                 <tr>
                     <td>물품개수</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name = box_amount ></td>
                 </tr>
                 <tr>    
                     <td rowspan="2">택배운임구분</td>
                     <td>
-                        <select>
+                        <select name=box_pay>
                             <option value="">결제방법</option>
-                            <option value="선불 결제">선불 결제</option>
-                            <option value="착불 결제">착불 결제</option>
+                            <option value="pre">선불 결제</option>
+                            <option value="post">착불 결제</option>
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>
                         <select>
                             <option value="">결제수단</option>
@@ -130,7 +130,7 @@
                 <tr>
                     <td>예상택배 운임</td>
                     <td><input type="text"></td>
-                </tr>
+                </tr> -->
             </table>
             <div class="button_wrap">
                 <button type="reset" class="post_reservation_reset">재작성</button>    
