@@ -30,7 +30,6 @@
    </thead>
    <tbody>
       <tr colspan="4">  
-
          <td></td>
          <td></td>
          <td colspan="3" class="name">작성자 {{ aa.user }} | 등록일 {{ aa.q_time|date:"Y-m-d"}} {{ aa.q_time|time:"h:i"}} | 조회수 {{ aa.today }}</td>   
@@ -50,7 +49,7 @@
              
 
 		{% endif %}
-	<tfoot>
+	<tbody>
 		<tr>
 			<td></td>
 			<td></td>
@@ -60,27 +59,31 @@
 			<td>
 			<form action = '#' style = "float:left;"><!--pk 사용 x-->
 		
-	
-		{% if aa.user == request.user %} <!--사진올린 사람 == 사용자-->
-             
-            <form action = '{% url "custom_voice_edit" %}' style = "display : inline; "><!--pk 사용 x-->
-               
-                <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
-                <button type = 'submit' style = "float:right; border: 1px solid blue; background-color: rgba(0,0,0,0); color: blue; padding: 5px;">수정</button>
-                <p style = 'color : blue; font-size: 10px;'></p>
-            </form>
-             
-            <form action = '{% url "deletevoice"  %}' style = "display : inline; ">
-               
-                
-                <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >
-                <button type = 'submit' style = "float:right; border: 1px solid red; background-color: rgba(0,0,0,0); color: red; padding: 5px;">삭제</button>
-                <p style = 'color : red; font-size: 10px;'></p>
-                   
-            </form>
-        {% endif %}
-		
-	</tbody>
+				<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
+				<button type = 'submit' class="button ">수정</button>
+				<p style = 'color : blue; font-size: 10px;'></p>
+			</form>	
+			<form action = '{% url "deletevoice"  %}' style = "float:left;">
+			
+			
+				<input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" >
+				<button type = 'submit' class="button 	primary solid" style= "margin-left:10px;">삭제</button>
+				<p style = 'color : red; font-size: 10px;'></p>
+					
+			</form>
+
+</td>
+		</tr>
+   </tbody>
+   <tfoot>
+      <tr>
+         <td>관리자 답변
+         </td>
+         <td colspan="4">abcㅇ나런이ㅏ러ㅣ나어라ㅣㄴ어라ㅣㄴ어라ㅣㄴ어리ㅏㄴ어리나어리나얼니아런ㅇ</td>
+      </tr>
+   </tfoot>
+      
+   </tbody>
 </table>
 
 {% endblock %}
