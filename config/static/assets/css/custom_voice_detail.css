@@ -4030,4 +4030,16 @@ table th {
 
 .content {
 	text-align:center;
-}
+ }
+ 
+ .reply {
+	font-size: 1em;
+	font-weight: 600;
+ }
+ 
+ .reply1{
+	float: left;
+	width: 1050px;
+	height: 500px;
+	text-align: left;
+ }

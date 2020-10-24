@@ -24,7 +24,7 @@
             <div class="black">고객의 소리</div>
             <div class="smallblack">저희 서비스를 이용하면서 느끼신 불편한 사항이나 칭찬할 만한 내용에 대하여 의견을 남기실 수 있습니다.</div>
             
-        {% if request.user.is_authenticated %}
+        
         
         <fieldset>
         <form method="post" action="{% url 'custom_voice_new' %}" enctype="multipart/form-data">
@@ -79,20 +79,14 @@
                         </tr>
                     </table>
                 </div>
-                <div class="open">
-                    <input type="radio" value = "True" id="demo-priority-high" checked  name="public" ><label for="demo-priority-high"></label>공개
-                    <input type="radio" value = "False" id="demo-priority-high1" name="public" ><label for="demo-priority-high1"></label>비공개
-                </div>
+                
                 <div class="button_wrap">
                     <button type="submit" class="post_reservation_reset">등록</button>
                 </div>
             </div>
         </form>
         </fieldset>
-        {% else %}
-		<h4>로그인한 사용자만 이용하실 수 있습니다.</h4>
-		<a href="{% url 'login' %}">로그인하러가기</a>
-		{% endif %}
+        
         </div>
     </div>
 
