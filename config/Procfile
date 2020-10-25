@@ -1,0 +1,1 @@
+web: gunicorn lottedelivery.wsgi --log-file –
