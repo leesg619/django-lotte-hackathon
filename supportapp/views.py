@@ -5,61 +5,64 @@ from django.contrib import auth
 # Create your views here.
 
 def custom_voice(request):
+    a = reversed(Qna.objects.all())
+    return render(request, 'custom_voice.html', {'qna': a})
+
+    
+
+def custom_voice_new(request):
     if request.user.is_authenticated:
-        a = reversed(Qna.objects.all())
-        return render(request, 'custom_voice.html', {'qna': a})
+        if request.method == 'POST' and 'pic' in request.FILES:
+            aa = Qna.objects.filter(user = request.user)
+            qna = Qna()
+            qnacontent = request.POST.get('q_content')
+            qnatitle = request.POST.get('q_title')
+            qnatype = request.POST.get('q_type')
+            qnaboxcode = request.POST.get('q_boxcode')
+            qnatime = request.POST.get('q_time')
+            qnapublic = request.POST.get('public')
+            qnaanswer = request.POST.get('answers')
+            pic = request.FILES['pic']
+
+            qna.q_content = qnacontent
+            qna.q_title = qnatitle
+            qna.q_type =qnatype
+            qna.q_boxcode =qnaboxcode 
+            qna.q_time =qnatime 
+            qna.public =qnapublic
+            qna.pic = pic
+            qna.answers = qnaanswer
+            qna.user = request.user
+            qna.save()
+            return redirect('custom_voice')
+
+        elif request.method == 'POST':
+            aa = Qna.objects.filter(user = request.user)
+            qna = Qna()
+            qnacontent = request.POST.get('q_content')
+            qnatitle = request.POST.get('q_title')
+            qnatype = request.POST.get('q_type')
+            qnaboxcode = request.POST.get('q_boxcode')
+            qnatime = request.POST.get('q_time')
+            qnapublic = request.POST.get('public')
+            qnaanswer = request.POST.get('answers')
+
+            qna.q_content = qnacontent
+            qna.q_title = qnatitle
+            qna.q_type =qnatype
+            qna.q_boxcode =qnaboxcode 
+            qna.q_time =qnatime 
+            qna.public =qnapublic
+            qna.answers = qnaanswer
+            
+            qna.user = request.user
+            qna.save()
+            return redirect('custom_voice')
+        return render(request, 'custom_voice_new.html')
     else:
         return redirect('login')
 
-def custom_voice_new(request):
     
-    if request.method == 'POST' and 'pic' in request.FILES:
-        aa = Qna.objects.filter(user = request.user)
-        qna = Qna()
-        qnacontent = request.POST.get('q_content')
-        qnatitle = request.POST.get('q_title')
-        qnatype = request.POST.get('q_type')
-        qnaboxcode = request.POST.get('q_boxcode')
-        qnatime = request.POST.get('q_time')
-        qnapublic = request.POST.get('public')
-        qnaanswer = request.POST.get('answers')
-        pic = request.FILES['pic']
-
-        qna.q_content = qnacontent
-        qna.q_title = qnatitle
-        qna.q_type =qnatype
-        qna.q_boxcode =qnaboxcode 
-        qna.q_time =qnatime 
-        qna.public =qnapublic
-        qna.pic = pic
-        qna.answers = qnaanswer
-        qna.user = request.user
-        qna.save()
-        return redirect('custom_voice')
-
-    elif request.method == 'POST':
-        aa = Qna.objects.filter(user = request.user)
-        qna = Qna()
-        qnacontent = request.POST.get('q_content')
-        qnatitle = request.POST.get('q_title')
-        qnatype = request.POST.get('q_type')
-        qnaboxcode = request.POST.get('q_boxcode')
-        qnatime = request.POST.get('q_time')
-        qnapublic = request.POST.get('public')
-        qnaanswer = request.POST.get('answers')
-
-        qna.q_content = qnacontent
-        qna.q_title = qnatitle
-        qna.q_type =qnatype
-        qna.q_boxcode =qnaboxcode 
-        qna.q_time =qnatime 
-        qna.public =qnapublic
-        qna.answers = qnaanswer
-        
-        qna.user = request.user
-        qna.save()
-        return redirect('custom_voice')
-    return render(request, 'custom_voice_new.html')
 
 
 
