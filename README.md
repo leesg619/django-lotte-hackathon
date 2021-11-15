@@ -50,3 +50,28 @@
 <p align="center"> <img width="600" src="https://user-images.githubusercontent.com/57563053/103131285-80f51d00-46e3-11eb-8d5a-f74e9aa15e9d.png">
 
 <p align="center"> <img width="600" src="https://user-images.githubusercontent.com/57563053/103131286-82264a00-46e3-11eb-9b53-54479a99dc30.png">
+
+   
+
+📝PPT : <a href="https://o365uhs-my.sharepoint.com/:p:/g/personal/20160330_office_uhs_ac_kr/EblOqcV9uitCsbjjMEAYA9QBhJn5c3WVAzu8ekG9_t4ilg?rtime=ldhkVjWo2Ug">클릭</a>
+
+  📫배포 : <a href="https://lottedelivery.herokuapp.com/">클릭</a>
+
+ 
+
+  
+
+체험 아이디
+
+아이디 : like8
+
+비밀번호 : 1234
+
+ 
+등록된 택배 송장번호
+
+684561234
+
+699987845
+
+712222231
